@@ -1,0 +1,98 @@
+
+:root {
+  --color-border: hsl(210, 16%, 82%);
+  --color-input: hsl(210, 16%, 95%);
+  --color-ring: hsl(215, 90%, 60%);
+  --color-background: hsl(0, 0%, 98%);
+  --color-foreground: hsl(210, 10%, 23%);
+
+  --color-primary: hsl(222, 47%, 11%);
+  --color-primary-foreground: hsl(210, 99%, 95%);
+  
+  --color-secondary: hsl(210, 16%, 82%);
+  --color-secondary-foreground: hsl(210, 10%, 23%);
+  
+  --color-destructive: hsl(0, 78%, 62%);
+  --color-destructive-foreground: hsl(0, 0%, 100%);
+  
+  --color-muted: hsl(210, 16%, 95%);
+  --color-muted-foreground: hsl(210, 10%, 50%);
+  
+  --color-accent: hsl(280, 65%, 55%);
+  --color-accent-foreground: hsl(280, 95%, 90%);
+  
+  --color-popover: hsl(0, 0%, 100%);
+  --color-popover-foreground: hsl(210, 10%, 23%);
+  
+  --color-card: hsl(0, 0%, 100%);
+  --color-card-foreground: hsl(210, 10%, 23%);
+
+  --radius-lg: 12px;
+  --radius-md: 10px;
+  --radius-sm: 8px;
+}
+
+.container {
+  max-width: 1400px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.border {
+  border-color: var(--color-border);
+  border-style: solid;
+  border-width: 1px;
+}
+
+.bg-background {
+  background-color: var(--color-background);
+}
+
+.text-foreground {
+  color: var(--color-foreground);
+}
+
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+.rounded-md {
+  border-radius: var(--radius-md);
+}
+.rounded-sm {
+  border-radius: var(--radius-sm);
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.accordion-down {
+  animation: accordion-down 0.2s ease-out forwards;
+}
+
+.accordion-up {
+  animation: accordion-up 0.2s ease-out forwards;
+}
+
+/* Focus ring padrão */
+.focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-ring);
+  outline-offset: 2px;
+}

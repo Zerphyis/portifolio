@@ -1,0 +1,21 @@
+#code-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0.05;
+  font-family: monospace;
+  font-size: 12px;
+  padding: 1rem;
+  white-space: pre-wrap;
+  color: #999;
+  transition: opacity 1s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  #code-background {
+    font-size: 14px;
+    opacity: 0.1;
+  }
+}

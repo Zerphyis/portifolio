@@ -1,75 +1,75 @@
 import "./ProjectSection.css";
 
-export  default function projectSectioN({}){
-document.addEventListener("DOMContentLoaded", () => {
+export default function ProjectSection() {
   const projects = [
     {
       title: "Portfólio Pessoal",
       description: "Site responsivo com animações modernas.",
-      image: "https://via.placeholder.com/400x200",
-      technologies: ["HTML", "CSS", "JavaScript"],
-      github: "https://github.com/seuusuario/portfolio",
-      demo: "https://seuportfolio.com",
+      technologies: ["React"],
+      github: "https://github.com/Zerphyis/portifolio",
     },
     {
-      title: "Dashboard Financeiro",
+      title: "Gasto$mart",
       description: "Visualize transações e gráficos em tempo real.",
-      image: "https://via.placeholder.com/400x200",
-      technologies: ["React", "Chart.js", "TailwindCSS"],
-      github: "https://github.com/seuusuario/dashboard",
-      demo: "",
+      technologies: ["React"],
+      github: "https://github.com/Zerphyis/GastoSmart",
     },
-    // Adicione mais projetos conforme necessário
+     {
+      title: " Adopet",
+      description: "Visualize transações e gráficos em tempo real.",
+      technologies: ["Java,SpringBoot,SQL"],
+      github: "https://github.com/Zerphyis/Adopet",
+    },
+     {
+      title: "AluraFlix",
+      description: "Visualize transações e gráficos em tempo real.",
+      technologies: ["Java,SpringBoot,SQL"],
+      github: "https://github.com/Zerphyis/AluraFlix",
+    },
+
+
   ];
 
-  const section = document.getElementById("projects-section");
-
-  const titleContainer = document.createElement("div");
-  titleContainer.className = "projects-title fade-in";
-  titleContainer.innerHTML = `
-    <h2>Meus Projetos</h2>
-    <p>Conheça alguns dos projetos que desenvolvi</p>
-  `;
-
-  const grid = document.createElement("div");
-  grid.className = "projects-grid";
-
-  projects.forEach((project, index) => {
-    const card = document.createElement("div");
-    card.className = "project-card fade-in";
-    card.style.animationDelay = `${index * 100}ms`;
-
-    card.innerHTML = `
-      <div class="project-image">
-        <img src="${project.image}" alt="${project.title}">
+  return (
+    <section id="projects-section">
+      <div className="projects-title fade-in">
+        <h2>Meus Projetos</h2>
+        <p>Conheça alguns dos projetos que desenvolvi</p>
       </div>
-      <div class="project-content">
-        <h3>${project.title}</h3>
-        <p class="description">${project.description}</p>
-        <div class="badge-list">
-          ${project.technologies
-            .map((tech) => `<div class="badge">${tech}</div>`)
-            .join("")}
-        </div>
+      <div className="projects-grid">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="project-card fade-in"
+            style={{ animationDelay: `${index * 100}ms` }}
+          >
+        
+            <div className="project-content">
+              <h3>{project.title}</h3>
+              <p className="description">{project.description}</p>
+              <div className="badge-list">
+                {project.technologies.map((tech, idx) => (
+                  <div key={idx} className="badge">
+                    {tech}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="project-footer">
+              {project.github && (
+                <a className="btn-outline" href={project.github} target="_blank" rel="noopener noreferrer">
+                  Código
+                </a>
+              )}
+              {project.demo && (
+                <a className="btn-solid" href={project.demo} target="_blank" rel="noopener noreferrer">
+                  Demo
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
-      <div class="project-footer">
-        ${
-          project.github
-            ? `<a class="btn-outline" href="${project.github}" target="_blank">Código</a>`
-            : ""
-        }
-        ${
-          project.demo
-            ? `<a class="btn-solid" href="${project.demo}" target="_blank">Demo</a>`
-            : ""
-        }
-      </div>
-    `;
-
-    grid.appendChild(card);
-  });
-
-  section.appendChild(titleContainer);
-  section.appendChild(grid);
-});
+    </section>
+  );
 }

@@ -27,22 +27,36 @@ export default function Header() {
     setMobileMenuOpen((prev) => !prev);
   }
 
+  function scrollToSection(id) {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
   const themeIcon = theme === "dark" ? solIcon : luaIcon;
 
   return (
     <header id="header">
       <div className="header-inner">
         <div className="logo">
-          {name}
-          <br />
-          {subname}
+          <span className="name">{name}</span>
+          <span className="subname">{subname}</span>
         </div>
 
         <nav className="nav-desktop">
-          <a href="#sobre">Sobre</a>
-          <a href="#habilidades">Habilidades</a>
-          <a href="#projetos">Projetos</a>
-          <a href="#contato">Contato</a>
+          <a onClick={() => scrollToSection("sobre")} style={{ cursor: "pointer" }}>
+            Sobre
+          </a>
+          <a onClick={() => scrollToSection("skills")} style={{ cursor: "pointer" }}>
+            Skills
+          </a>
+          <a onClick={() => scrollToSection("projetos")} style={{ cursor: "pointer" }}>
+            Projetos
+          </a>
+          <a onClick={() => scrollToSection("contato")} style={{ cursor: "pointer" }}>
+            Contato
+          </a>
           <button
             id="theme-toggle"
             className="icon-button"
@@ -73,12 +87,12 @@ export default function Header() {
         </div>
       </div>
 
-      <div className={`mobile-menu ${mobileMenuOpen ? "" : "hidden"}`}>
-        <a href="#sobre" onClick={() => setMobileMenuOpen(false)}>Sobre</a>
-        <a href="#habilidades" onClick={() => setMobileMenuOpen(false)}>Habilidades</a>
-        <a href="#projetos" onClick={() => setMobileMenuOpen(false)}>Projetos</a>
-        <a href="#contato" onClick={() => setMobileMenuOpen(false)}>Contato</a>
-      </div>
+      <nav className={`mobile-menu ${mobileMenuOpen ? "" : "hidden"}`}>
+        <a onClick={() => { scrollToSection("sobre"); setMobileMenuOpen(false); }}>Sobre</a>
+        <a onClick={() => { scrollToSection("skills"); setMobileMenuOpen(false); }}>Skills</a>
+        <a onClick={() => { scrollToSection("projetos"); setMobileMenuOpen(false); }}>Projetos</a>
+        <a onClick={() => { scrollToSection("contato"); setMobileMenuOpen(false); }}>Contato</a>
+      </nav>
     </header>
   );
 }

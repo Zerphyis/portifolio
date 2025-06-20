@@ -4,8 +4,11 @@ import "./ContactSection.css";
 export default function ContactSection() {
   const personalInfo = {
     email: "otavio.alexandredev@gmail.com",
-    location: "Fortaleza Ceara, Brasil",
+    location: "Fortaleza Ceará, Brasil",
   };
+
+  const email = "/Imgs/email.png";
+  const localizador = "/Imgs/localizador.png";
 
   const [isSending, setIsSending] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -13,7 +16,7 @@ export default function ContactSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSending(true);
-    await new Promise((res) => setTimeout(res, 1500)); 
+    await new Promise((res) => setTimeout(res, 1500));
     setIsSending(false);
     setShowSuccess(true);
     e.target.reset();
@@ -30,19 +33,26 @@ export default function ContactSection() {
       <div className="contact-grid">
         <div className="contact-card fade-in">
           <h3>Informações de Contato</h3>
-          <div className="contact-info">
-            <div className="icon-block">📧</div>
-            <div>
-              <p>Email</p>
-              <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
-            </div>
-          </div>
 
-          <div className="contact-info">
-            <div className="icon-block">📍</div>
-            <div>
-              <p>Localização</p>
-              <span>{personalInfo.location}</span>
+          <div className="contact-row">
+            <div className="contact-info">
+              <div className="icon-block">
+                <img src={email} alt="Ícone de email" className="icon-img" />
+              </div>
+              <div>
+                <p>Email</p>
+                <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
+              </div>
+            </div>
+
+            <div className="contact-info">
+              <div className="icon-block">
+                <img src={localizador} alt="Ícone de localização" className="icon-img" />
+              </div>
+              <div>
+                <p>Localização</p>
+                <span>{personalInfo.location}</span>
+              </div>
             </div>
           </div>
         </div>

@@ -1,9 +1,63 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #333;
+  --card-bg: #fff;
+  --card-border: #ddd;
+  --badge-bg: #f0f0f0;
+  --badge-text: #555;
+  --btn-outline-border: #333;
+  --btn-outline-color: #333;
+  --btn-outline-hover-bg: #333;
+  --btn-outline-hover-color: #fff;
+  --btn-solid-bg: #333;
+  --btn-solid-hover-bg: #111;
+  --btn-solid-color: #fff;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #ddd;
+  --card-bg: #1e1e1e;
+  --card-border: #333;
+  --badge-bg: #333;
+  --badge-text: #ccc;
+  --btn-outline-border: #66aaff;
+  --btn-outline-color: #66aaff;
+  --btn-outline-hover-bg: #66aaff;
+  --btn-outline-hover-color: #121212;
+  --btn-solid-bg: #66aaff;
+  --btn-solid-hover-bg: #4488cc;
+  --btn-solid-color: #121212;
+}
+
 #projects-section {
   padding: 5rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
-  color: #333;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+#projects {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 4rem 1rem;
+}
+
+.project-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  animation: fadeUp 0.4s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .projects-title {
@@ -18,7 +72,7 @@
 }
 
 .projects-title p {
-  color: #666;
+  color: var(--badge-text);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -26,12 +80,12 @@
 .projects-grid {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr;  
 }
 
 @media (min-width: 768px) {
   .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); 
   }
 }
 
@@ -39,19 +93,6 @@
   .projects-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-}
-
-.project-card {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  animation: fadeUp 0.4s ease forwards;
-  opacity: 0;
-  transform: translateY(20px);
 }
 
 .project-image img {
@@ -74,11 +115,12 @@
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  color: var(--text-color);
 }
 
 .project-content .description {
   font-size: 0.95rem;
-  color: #555;
+  color: var(--badge-text);
   margin-bottom: 1rem;
 }
 
@@ -89,7 +131,8 @@
 }
 
 .badge {
-  background-color: #f0f0f0;
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
   padding: 0.4rem 0.8rem;
   border-radius: 999px;
   font-size: 0.8rem;
@@ -107,27 +150,27 @@
   font-size: 0.85rem;
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .btn-outline {
-  border: 1px solid #333;
+  border: 1px solid var(--btn-outline-border);
   background: transparent;
-  color: #333;
+  color: var(--btn-outline-color);
 }
 
 .btn-outline:hover {
-  background: #333;
-  color: #fff;
+  background: var(--btn-outline-hover-bg);
+  color: var(--btn-outline-hover-color);
 }
 
 .btn-solid {
-  background: #333;
-  color: #fff;
+  background: var(--btn-solid-bg);
+  color: var(--btn-solid-color);
 }
 
 .btn-solid:hover {
-  background: #111;
+  background: var(--btn-solid-hover-bg);
 }
 
 @keyframes fadeUp {

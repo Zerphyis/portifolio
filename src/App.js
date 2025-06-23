@@ -4,12 +4,14 @@ import ProjectSection from "./components/project-section/ProjectSection";
 import ContactSection from "./components/contact-section/ContactSection";
 import Footer from "./components/footer/Footer";
 import AboutSection from "./components/aboutSection/AboutSection";
+import BackGroundCode from "./components/backGroundCode/BackGroundCode";
 
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
+      <BackGroundCode /> 
       <Header />
       <main>
         <AboutSection />

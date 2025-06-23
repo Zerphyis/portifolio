@@ -1,5 +1,7 @@
-export default function BackGroundCode({}){
-document.addEventListener("DOMContentLoaded", () => {
+import { useEffect, useState } from "react";
+import "./BackGroundCode.css";
+
+export default function BackGroundCode() {
   const codeSnippets = [
     `// Node.js Express Server
 const express = require('express');
@@ -85,22 +87,19 @@ func main() {
 }`,
   ];
 
-  const container = document.getElementById("code-background");
-  let currentIndex = 0;
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  function showSnippet(index) {
-    container.style.opacity = 0;
-    setTimeout(() => {
-      container.textContent = codeSnippets[index];
-      container.style.opacity = 1;
-    }, 500);
-  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % codeSnippets.length);
+    }, 10000);
 
-  showSnippet(currentIndex);
+    return () => clearInterval(interval);
+  }, []);
 
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % codeSnippets.length;
-    showSnippet(currentIndex);
-  }, 10000);
-});
+  return (
+    <pre id="code-background" className="background-code">
+      {codeSnippets[currentIndex]}
+    </pre>
+  );
 }

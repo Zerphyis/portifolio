@@ -1,8 +1,47 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #333;
+  --card-bg: #fff;
+  --card-border: #ddd;
+  --icon-bg: #eef2f6;
+  --link-color: #007bff;
+  --button-bg: #333;
+  --button-hover-bg: #000;
+  --success-color: green;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #ddd;
+  --card-bg: #1e1e1e;
+  --card-border: #333;
+  --icon-bg: #2a2a2a;
+  --link-color: #66aaff;
+  --button-bg: #444;
+  --button-hover-bg: #222;
+  --success-color: #4caf50;
+}
+
 #contact-section {
   padding: 5rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+#contact {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 4rem 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--card-border);
 }
 
 .section-title {
@@ -20,6 +59,7 @@
   color: #555;
   max-width: 600px;
   margin: 0 auto;
+  color: var(--text-color);
 }
 
 .contact-grid {
@@ -35,37 +75,38 @@
 }
 
 .contact-card {
-  border: 1px solid #ddd;
+  border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 2rem;
-  background-color: #fff;
+  background-color: var(--card-bg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: var(--text-color);
 }
 
 .contact-row {
   display: flex;
-  justify-content: center; /* centraliza os dois blocos horizontalmente */
-  gap: 3rem; /* espaçamento entre Email e Localização */
+  justify-content: center; 
+  gap: 3rem; 
   width: 100%;
-  max-width: 400px; /* limita largura para ficar bonito */
-  flex-wrap: wrap; /* para quebrar em telas muito pequenas */
+  max-width: 400px; 
+  flex-wrap: wrap; 
 }
 
 .contact-info {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  min-width: 180px; /* mantém tamanho mínimo para cada bloco */
+  min-width: 180px; 
 }
 
 .icon-block {
   width: 2rem;
   height: 2rem;
-  background-color: #eef2f6;
+  background-color: var(--icon-bg);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -84,17 +125,18 @@
   margin: 0;
   font-weight: bold;
   font-size: 0.9rem;
+  color: var(--text-color);
 }
 
 .contact-info a,
 .contact-info span {
   font-size: 0.85rem;
-  color: #555;
+  color: var(--text-color);
   text-decoration: none;
 }
 
 .contact-info a:hover {
-  color: #007bff;
+  color: var(--link-color);
 }
 
 .form {
@@ -108,15 +150,17 @@
 .form textarea {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--card-border);
   border-radius: 8px;
   font-size: 0.9rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
 }
 
 .form button {
   padding: 0.75rem;
   border: none;
-  background-color: #333;
+  background-color: var(--button-bg);
   color: #fff;
   border-radius: 8px;
   font-size: 0.9rem;
@@ -125,11 +169,11 @@
 }
 
 .form button:hover {
-  background-color: #000;
+  background-color: var(--button-hover-bg);
 }
 
 .success-msg {
-  color: green;
+  color: var(--success-color);
   font-size: 0.85rem;
   text-align: center;
 }
@@ -151,7 +195,6 @@
   display: none !important;
 }
 
-/* Responsividade */
 @media (max-width: 480px) {
   .contact-row {
     flex-direction: column;

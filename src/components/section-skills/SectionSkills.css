@@ -1,9 +1,28 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #333;
+  --card-bg: #fff;
+  --card-border: #ddd;
+  --badge-bg: #f0f0f0;
+  --badge-text: #333;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #ddd;
+  --card-bg: #1e1e1e;
+  --card-border: #333;
+  --badge-bg: #333;
+  --badge-text: #ddd;
+}
+
 #skills-section {
   padding: 5rem 1rem;
   max-width: 1024px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
-  color: #333;
+  color: var(--text-color);
+  background-color: var(--bg-color);
 }
 
 .section-title {
@@ -14,10 +33,11 @@
 .section-title h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
+  color: var(--text-color);
 }
 
 .section-title p {
-  color: #666;
+  color: #666; 
   max-width: 600px;
   margin: 0 auto;
 }
@@ -35,17 +55,19 @@
 }
 
 .card {
-  border: 1px solid #ddd;
+  border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  background-color: #fff;
+  background-color: var(--card-bg);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .card-title {
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  color: var(--text-color);
 }
 
 .badge-list {
@@ -55,14 +77,15 @@
 }
 
 .badge {
-  background-color: #f0f0f0;
+  background-color: var(--badge-bg);
   border-radius: 9999px;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
-  color: #333;
+  color: var(--badge-text);
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 0.4s forwards;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @keyframes fadeUp {

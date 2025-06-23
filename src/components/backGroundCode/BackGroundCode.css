@@ -1,21 +1,33 @@
-#code-background {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  opacity: 0.05;
-  font-family: monospace;
-  font-size: 12px;
-  padding: 1rem;
-  white-space: pre-wrap;
-  color: #999;
-  transition: opacity 1s ease;
+body {
+  position: relative;
   z-index: 0;
-  pointer-events: none;
 }
 
-@media (min-width: 768px) {
-  #code-background {
-    font-size: 14px;
-    opacity: 0.1;
-  }
+.background-code {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  font-size: 14px;
+  font-family: monospace;
+  white-space: pre-wrap;
+  z-index: -1; 
+  pointer-events: none;
+  user-select: none; 
+  transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  overflow: auto;
+}
+
+/* Tema claro */
+.light-mode .background-code {
+  color: #333;
+  background-color: #f4f4f4;
+}
+
+/* Tema escuro */
+.dark-mode .background-code {
+  color: #FFA500;
+  background-color: #121212;
 }
